@@ -2911,7 +2911,9 @@ tp_init_accel(struct tp_dispatch *tp)
 								    ms2us(10),
 								    use_v_avg);
 	else
-		filter = create_pointer_accelerator_filter_touchpad(dpi, 0, 0, use_v_avg);
+		// Change hardcoded filter to one that does not apply acceleration
+		// filter = create_pointer_accelerator_filter_touchpad(dpi, 0, 0, use_v_avg);
+		filter = create_pointer_accelerator_filter_flat(dpi);
 
 	if (!filter)
 		return false;
